@@ -9,6 +9,7 @@ import (
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", Index)
+	r.HandleFunc("/admin", adminIndex)
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("assets/")))
 	http.Handle("/", r)
 
